@@ -1,4 +1,8 @@
 <template>
+    <div id="nav">
+        <router-link to="/">Home</router-link> |
+        <router-link :to="{ name: 'About' }">About</router-link>
+    </div>
     <router-view />
 </template>
 
@@ -17,9 +21,13 @@
     a {
         font-weight: bold;
         color: #2c3e50;
+        text-decoration: none;
+        padding: 10px;
+        border-radius: 4px;
 
         &.router-link-exact-active {
-            color: #42b983;
+            color: #fff;
+            background: crimson;
         }
     }
 }

@@ -6,9 +6,16 @@ import { createRouter, createWebHashHistory } from 'vue-router';
 const HomeComponent = () => import(/* webpackChunkName: "home" */ '../views/Home.vue');
 const AboutComponent = () => import(/* webpackChunkName: "about" */ '../views/About.vue');
 
+const HomePageComponent = () => import(/* webpackChunkName: "homepage" */ '../views/HomePage.vue');
+
 const routes = [
     {
         path: '/',
+        name: 'Homepage',
+        component: HomePageComponent,
+    },
+    {
+        path: '/home',
         name: 'Home',
         component: HomeComponent,
     },
@@ -16,6 +23,11 @@ const routes = [
         path: '/about',
         name: 'About',
         component: AboutComponent,
+    },
+    {
+        path: '/:pathMatch(.*)*',
+        name: 'not-found',
+        redirect: { name: 'Home' },
     },
 ];
 
