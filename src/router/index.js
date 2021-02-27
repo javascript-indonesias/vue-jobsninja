@@ -8,6 +8,12 @@ const AboutComponent = () => import(/* webpackChunkName: "about" */ '../views/Ab
 
 const HomePageComponent = () => import(/* webpackChunkName: "homepage" */ '../views/HomePage.vue');
 
+const JobListComponent = () =>
+    import(/* webpackChunkName: "joblist" */ '../views/jobs/JobList.vue');
+
+const JobDetailComponent = () =>
+    import(/* webpackChunkName: "jobdetail" */ '../views/jobs/JobDetail.vue');
+
 const routes = [
     {
         path: '/',
@@ -25,9 +31,19 @@ const routes = [
         component: AboutComponent,
     },
     {
+        path: '/jobs',
+        name: 'JobList',
+        component: JobListComponent,
+    },
+    {
+        path: '/jobs/:id',
+        name: 'JobDetail',
+        component: JobDetailComponent,
+    },
+    {
         path: '/:pathMatch(.*)*',
         name: 'not-found',
-        redirect: { name: 'Home' },
+        redirect: { name: 'Homepage' },
     },
 ];
 
