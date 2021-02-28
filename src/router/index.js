@@ -14,6 +14,8 @@ const JobListComponent = () =>
 const JobDetailComponent = () =>
     import(/* webpackChunkName: "jobdetail" */ '../views/jobs/JobDetail.vue');
 
+const NotFoundComponent = () => import('../views/NotFounds.vue');
+
 const routes = [
     {
         path: '/',
@@ -42,9 +44,18 @@ const routes = [
         props: true,
     },
     {
+        path: '/all-jobs',
+        redirect: { name: 'JobList' },
+    },
+    // {
+    //     path: '/:pathMatch(.*)*',
+    //     name: 'not-found',
+    //     redirect: { name: 'Homepage' },
+    // },
+    {
         path: '/:pathMatch(.*)*',
-        name: 'not-found',
-        redirect: { name: 'Homepage' },
+        name: 'NotFound',
+        component: NotFoundComponent,
     },
 ];
 
