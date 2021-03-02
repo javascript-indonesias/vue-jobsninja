@@ -15,5 +15,5 @@ module.exports = {
     devServer: {
         port: 3200,
     },
-    publicPath: process.env.NODE_ENV === 'production' ? '/ninja-webform-demo/' : '/',
+    publicPath: process.env.NODE_ENV === 'production' ? '/vuerouter-jobsninja-demo/' : '/',
 };
