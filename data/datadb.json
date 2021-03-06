@@ -1,0 +1,26 @@
+{
+    "jobs": [
+        {
+            "title": "UX Designer",
+            "id": 1,
+            "details": "lorem ux designer"
+        },
+        {
+            "title": "Web Developer",
+            "id": 2,
+            "details": "lorem web developer"
+        },
+        {
+            "title": "Vue Developer",
+            "id": 3,
+            "details": "vue developer"
+        }
+    ],
+    "blogs": [
+        {
+            "title": "Judul Lorem Ipsums",
+            "id": 1,
+            "details": "lorem ipsum dolor sir ametis"
+        }
+    ]
+}

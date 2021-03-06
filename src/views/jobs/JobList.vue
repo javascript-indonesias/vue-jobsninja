@@ -30,6 +30,10 @@ export default {
     setup() {
         return {};
     },
+    methods: {
+        getDataJobs() {},
+    },
+    mounted() {},
 };
 </script>
 
