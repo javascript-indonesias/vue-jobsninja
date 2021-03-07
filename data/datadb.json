@@ -14,6 +14,11 @@
             "title": "Vue Developer",
             "id": 3,
             "details": "vue developer"
+        },
+        {
+            "title": "QA Developer",
+            "id": 4,
+            "details": "qa developer"
         }
     ],
     "blogs": [

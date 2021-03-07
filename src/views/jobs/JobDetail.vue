@@ -1,11 +1,12 @@
 <template>
-    <h1>Job Details Page</h1>
-    <p>Job detail id adalah {{ jobid }}</p>
-    <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi laudantium quia saepe
-        deleniti quo natus suscipit quisquam ex dignissimos neque enim maiores excepturi sit nemo
-        iusto, dicta exercitationem velit officia.
-    </p>
+    <div v-if="jobObject">
+        <h1>{{ jobObject.title }}</h1>
+        <p>Job detail id adalah {{ jobid }}</p>
+        <p>{{ jobObject.details }}</p>
+    </div>
+    <div v-else>
+        Memuat job detail...
+    </div>
 </template>
 
 <script>
@@ -22,6 +23,7 @@ export default {
     data() {
         return {
             jobid: '',
+            jobObject: null,
             watchStopHandlerParam: null,
             watchStopHandlerQuery: null,
         };
@@ -54,6 +56,8 @@ export default {
                 );
             },
         );
+
+        this.getDetailJobs();
     },
     beforeUnmount() {
         // Watchers API
@@ -63,6 +67,32 @@ export default {
             this.watchStopHandlerParam();
             this.watchStopHandlerQuery();
         }
+    },
+    methods: {
+        getDetailJobs() {
+            // Simulasi mengambil data dari server
+            fetch(`http://localhost:3000/jobs/${this.jobid}`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json;charset=utf-8',
+                },
+            })
+                .then((result) => {
+                    if (result.status === 200) {
+                        return result.json();
+                    }
+                    return Promise.reject(
+                        new Error(`Gagal mengambil data ${result.status} ${result.statusText}`),
+                    );
+                })
+                .then((value) => {
+                    this.jobObject = value;
+                })
+                .catch((error) => {
+                    console.warn(error);
+                    this.jobObject = null;
+                });
+        },
     },
 };
 </script>
